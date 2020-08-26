@@ -1,7 +1,7 @@
 # Capstone Proposal 
 
 # NAME 
- The name of this capstone is ... 
+ The name of this capstone is ... jasmine_hope_photography 
  
 # Project Overview 
 This web development application is a professional photography website. It will be used to connect photographer to clientele, and create a place for clients to access digital copies of their photographs.  
