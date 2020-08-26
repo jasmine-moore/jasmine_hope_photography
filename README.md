@@ -16,12 +16,14 @@ There should be a secondary user-view/dashboard for adminstrators/photographers,
 # User Stories 
 
 User Client:  as the user I want the ability to view/download my photos
+
   ** Tasks ** 
    - create user account form
    - create photo folder for watermarked and original photos
    - create button pinging for code to original photos, once client has paid for services
  
 Admin: As the admin, I want the ability to create, update, delete images and allow clients access to thier paid for photos. 
+
   ** Tasks **
     - create database, to allow admin to create, update, delete image galleries/folders
     - allow admin access to client information
