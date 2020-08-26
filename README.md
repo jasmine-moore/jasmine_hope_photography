@@ -48,15 +48,15 @@ Types of models  --
  5 days:  Linking everything together and making sure it works. Doing major styling. creating a test account. If time allows embedding instagram feeds into side panel. 
  
  Essentials: 
-    - Image Gallery (publicly available/ user available)
-    - user account
-    - admin account
-    - inquiry form for visitors (link to send entered information straight to email)
+   - Image Gallery (publicly available/ user available)
+   - user account
+   - admin account
+   - inquiry form for visitors (link to send entered information straight to email)
  
  Really Great To Haves: 
-    - admin ability to upload photos from front end
-    - admin dashboard
-    - have gallery display most recent work on homepage, if not enough time just have link to gallery
+   - admin ability to upload photos from front end
+   - admin dashboard
+   - have gallery display most recent work on homepage, if not enough time just have link to gallery
  Nice to haves: 
   - instagram feed embedded in html 
   - photographer profile
