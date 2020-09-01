@@ -1,0 +1,32 @@
+html {
+    box-sizing: border-box;
+}
+*,*:before, *after {
+    box-sizing: inherit;
+}
+
+header {
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+body {
+    font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.galleries {
+    background-color: whitesmoke;
+    margin: 12px;
+    padding: 16px 24px;
+}
+
+.image {
+    max-width: 250px;
+}
+
+footer {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: .75em;
+    text-align: center;
+}
