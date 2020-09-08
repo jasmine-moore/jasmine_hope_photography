@@ -2,8 +2,50 @@
 
 {% block content %}
 
-<h3> Hello, {{ object.username }} !</h3>
-<h5> Member since: {{object.date_joined }}</h5>
 
- <p> {{ object }}
+<div id="app">
+    <div class="galleries" v-for="user in users">
+            <h3> [[  ]] </h3>
+            <h4> [[ gallery.description ]]
+            <h5> Photographer: [[ gallery.photographer ]]</h5>
+
+                <div v-for="photo in gallery.photo_set"> 
+
+
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+
+<script>
+    let vm = new Vue({
+        el: '#app', 
+        delimiters: ['[[' , ']]'], 
+        data: {
+            user: {},
+            csrf_token: "",
+        }, 
+
+        methods: {
+            loadUser: function () {
+                console.log('test')
+                axios ({
+                    method: 'get', 
+                    url: '/apis/v1/client/1/',
+                }).then(response =>{
+                    this.user = response.data;
+                })
+            }
+        },
+
+        created: function () {
+            this.loadUser()
+        }
+
+    })
+
+
+</script>
+
 {% endblock content %}

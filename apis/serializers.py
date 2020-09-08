@@ -15,19 +15,16 @@ class PhotoSerializer (serializers.ModelSerializer):
             'photographer',
         )
 
-class ClientSerializer (serializers.ModelSerializer): 
-    class Meta:
-        model = models.Photo
-        fields = (
-            'original_photo',
-            'client_name',
-            'photographer',
-
-        )
+# class ClientSerializer (serializers.ModelSerializer): 
+#     class Meta:
+#         model = models.Photo
+#         fields = (
+#             'client_name',
+#         )
  
 
 class OriginalPhotoSerializer (serializers.ModelSerializer):
-    client_info = ClientSerializer(many=True, read_only=True)
+    # client_info = ClientSerializer(read_only=True, source='client_name')
     class Meta:
         model = models.Photo
         fields = (
@@ -36,8 +33,18 @@ class OriginalPhotoSerializer (serializers.ModelSerializer):
             'gallery', 
             'photo_date', 
             'client_name',
-            'client_info',
+            # 'client_info',
             'photographer',
+        )
+    
+class NestedOriginalPhotoSerializer (serializers.ModelSerializer):
+    class Meta: 
+        model = models.Photo
+        fields = (
+            'original_photo', 
+            'id', 
+            'gallery',
+            'photo_date',
         )
 
 class WatermarkedPhotoSerializer (serializers.ModelSerializer):
@@ -75,8 +82,22 @@ class GalleriesSerializer (serializers.ModelSerializer):
             'description',
         )
 
+class NestedGalleriesSerializer (serializers.ModelSerializer): 
+    photo_set = NestedOriginalPhotoSerializer(read_only=True, many=True)
+    class Meta: 
+        model = models.Gallery
+        fields = (
+            'id',
+            'name',
+            'date', 
+            'photographer',
+            'photo_set',
+            'description',
+        )
+
+
 class UserSerializer (serializers.ModelSerializer): 
-    client_set = OriginalPhotoSerializer(read_only=True, many=True, source='original_photo')
+    client_set = NestedOriginalPhotoSerializer(read_only=True, many=True, source='photo_set')
     class Meta:
         model = models.User
         fields = (
@@ -90,3 +111,20 @@ class UserSerializer (serializers.ModelSerializer):
             'date_joined',
             'client_set',
         )
+
+class ClientSerializer (serializers.ModelSerializer): 
+    client_set = NestedGalleriesSerializer(read_only=True, many=True, source='gallery_set')
+    class Meta:
+        model = models.User
+        fields = (
+            'username', 
+            'first_name', 
+            'last_name', 
+            'email',  
+            'is_staff',
+            'is_superuser', 
+            'last_login', 
+            'date_joined',
+            'client_set',
+        )
+

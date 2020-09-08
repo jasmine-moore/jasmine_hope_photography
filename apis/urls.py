@@ -1,14 +1,15 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import ListUserViewSet, ListPhotoViewSet, ListOriginalViewset, ListWatermarkViewSet, DetailGalleryViewSet
+from .views import ListUserViewSet, ListPhotoViewSet, ListOriginalViewset, ListWatermarkViewSet, DetailGalleryViewSet, ListClientViewSet
 
 router = DefaultRouter()
 router.register('users', ListUserViewSet, basename="users")
 router.register('gallery', DetailGalleryViewSet, basename="gallery")
 router.register('photo' , ListPhotoViewSet, basename="photo")
 router.register('original' , ListOriginalViewset, basename="original")
-router.register('watermark', ListWatermarkViewSet, basename="watermark")
+router.register('watermark', ListWatermarkViewSet, basename="watermark"),
+router.register('client', ListClientViewSet, basename="client"),
 urlpatterns = router.urls
 
 # urlpatterns = [

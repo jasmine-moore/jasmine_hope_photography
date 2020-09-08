@@ -2,7 +2,7 @@ from rest_framework import generics, viewsets
 from django.contrib.auth.models import User
 
 from photo_content.models import Gallery, Photo
-from .serializers import PhotoSerializer, UserSerializer, OriginalPhotoSerializer, WatermarkedPhotoSerializer, GalleriesSerializer
+from .serializers import PhotoSerializer, UserSerializer, OriginalPhotoSerializer, WatermarkedPhotoSerializer, GalleriesSerializer, ClientSerializer
 
 # class ListGallery (generics.ListCreateAPIView):
 #     queryset = models.Gallery.objects.all()
@@ -63,4 +63,11 @@ class ListWatermarkViewSet (viewsets.ModelViewSet):
 class ListUserViewSet (viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
+
+class ListClientViewSet (viewsets.ModelViewSet):
+    serializer_class = ClientSerializer
+    queryset = User.objects.all()
+
+    def get_object(self): 
+        return self.request.user
 
