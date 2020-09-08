@@ -1,22 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/main.css"/>
     <title>Jasmine Hope Photography</title>
 </head>
-<header>
-    <h1>Jasmine Hope Photography.</h1> 
-    <h3>
-        <a href="https://www.google.com/">HOME</a>
-        <a href="https://www.google.com/">ABOUT</a>
-        <a href="https://wwww.google.com/>">GALLERY</a>
-        <a href="https://wwww.google.com/>">SESSION INFO</a>
-        <a href="https://wwww.google.com/>">CONTACT</a
-    </h3>
-</header>
+    <header>
+        <h1>Jasmine Hope Photography</h1> 
+        <h3>
+            <a href= "/home">HOME</a>
+            <a href="https://www.google.com/">ABOUT</a>
+            <a href="/gallery">GALLERY</a>
+            <a href="https://wwww.google.com/">CONTACT</a></h3>
+    </header>
 <body>
-    
+    {% block content%}
+    {% endblock%}
 </body>
 
 <footer> &copy;2020 Jasmine Hope Photography </footer>

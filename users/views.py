@@ -10,4 +10,8 @@ class SignUpView(CreateView):
     template_name = 'createaccount.html'
     success_url= reverse_lazy('login')
 
+    # def userprofile(self, request): 
+    #     user = users.objects.all()
+    #     pictures # = model, get_object for current user = request.user
+    #     return (request, self.template_name, )
 

@@ -54,15 +54,18 @@ class GalleriesSerializer (serializers.ModelSerializer):
         model = models.Gallery
         fields = (
             'id',
+            'user',
             'name',
             'date', 
             'photographer',
             'photo_set',
+            'description',
         )
 
 class UserSerializer (serializers.ModelSerializer): 
+    client_set = OriginalPhotoSerializer(read_only=True, many=True, source='original_photo')
     class Meta:
-        model = User
+        model = models.User
         fields = (
             'username', 
             'first_name', 
@@ -72,4 +75,5 @@ class UserSerializer (serializers.ModelSerializer):
             'is_superuser', 
             'last_login', 
             'date_joined',
+            'client_set',
         )

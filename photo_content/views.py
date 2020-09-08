@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import DetailView
 
-# Create your views here.
+from .models import Gallery
+
+# class GalleryDetailView(DetailView): 
+#     model = Gallery
+#     template_name = 'gallery.html'
+    
+
+
+    

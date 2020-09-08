@@ -1,12 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class Gallery(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateTimeField()
-    photographer = models.ForeignKey(User, on_delete=models.CASCADE)
-    
+    photographer = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField()
 
 class Photo(models.Model): 
     original_photo = models.ImageField(upload_to='images/original/')
@@ -15,3 +17,5 @@ class Photo(models.Model):
     photo_date = models.DateTimeField()
     client_name = models.CharField(max_length=200)
     photographer = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    
