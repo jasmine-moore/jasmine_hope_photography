@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3> Hello, {{ object.username }} !</h3>
+<h5> Member since: {{object.date_joined }}</h5>
+
+ <p> {{ object }}
+{% endblock content %}

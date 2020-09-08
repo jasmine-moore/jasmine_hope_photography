@@ -15,7 +15,7 @@ class Photo(models.Model):
     watermarked_photo = models.ImageField(upload_to='images/watermarked/')
     gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE)
     photo_date = models.DateTimeField()
-    client_name = models.CharField(max_length=200)
-    photographer = models.ForeignKey(User, on_delete=models.CASCADE)
+    client_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    photographer = models.CharField(max_length=200)
 
     

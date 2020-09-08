@@ -15,3 +15,10 @@ class SignUpView(CreateView):
     #     pictures # = model, get_object for current user = request.user
     #     return (request, self.template_name, )
 
+class UserProfileView(DetailView):
+    model = User
+    template_name = 'userprofile.html'
+
+    def get_object(self):
+        return get_object_or_404(User, username=self.kwargs['username'])
+

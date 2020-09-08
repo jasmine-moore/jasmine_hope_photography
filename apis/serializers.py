@@ -15,7 +15,19 @@ class PhotoSerializer (serializers.ModelSerializer):
             'photographer',
         )
 
+class ClientSerializer (serializers.ModelSerializer): 
+    class Meta:
+        model = models.Photo
+        fields = (
+            'original_photo',
+            'client_name',
+            'photographer',
+
+        )
+ 
+
 class OriginalPhotoSerializer (serializers.ModelSerializer):
+    client_info = ClientSerializer(many=True, read_only=True)
     class Meta:
         model = models.Photo
         fields = (
@@ -24,6 +36,7 @@ class OriginalPhotoSerializer (serializers.ModelSerializer):
             'gallery', 
             'photo_date', 
             'client_name',
+            'client_info',
             'photographer',
         )
 
