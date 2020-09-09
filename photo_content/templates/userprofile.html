@@ -4,12 +4,22 @@
 
 
 <div id="app">
-    <div class="galleries" v-for="user in users">
-            <h3> [[  ]] </h3>
-            <h4> [[ gallery.description ]]
-            <h5> Photographer: [[ gallery.photographer ]]</h5>
+    <div class="acctinfo">
+        <p> [[ user.first_name ]] [[ user.last_name ]] </p>
+        <p> Username: [[ user.username ]] </p>
+        <p> Email: [[ user.email ]] </p>
+        <p> Last Login: [[ user.last_login ]] </p>
 
-                <div v-for="photo in gallery.photo_set"> 
+        
+    
+    </div>
+
+    <div class="galleries" v-for="photo in photos"> 
+        <img class="image" :src="photo.original_photo"/> 
+
+    </div>          
+
+               
 
 
 
@@ -25,6 +35,7 @@
         data: {
             user: {},
             csrf_token: "",
+            photos: [],
         }, 
 
         methods: {
@@ -35,7 +46,13 @@
                     url: '/apis/v1/client/1/',
                 }).then(response =>{
                     this.user = response.data;
-                })
+                    console.log(response.data.client_set)
+                    for(let i = 0; i < response.data.client_set.length; i++){
+                         this.photos = this.photos.concat(response.data.client_set[i].photo_set);
+                    } 
+                }
+                )
+
             }
         },
 

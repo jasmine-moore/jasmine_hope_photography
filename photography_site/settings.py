@@ -137,3 +137,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 import mimetypes
 mimetypes.add_type("text/css", ".css", True)
+
+LOGIN_REDIRECT_URL = 'photo_content:profile'
+LOGOUT_REDIRECT_URL = 'photo_content:home'
