@@ -9,14 +9,16 @@
 
     <div id="app">
         
-        <div class="galleries" v-for="gallery in galleries">
-            <h3> [[ gallery.name ]] </h3>
-            <h4> [[ gallery.description ]]
-            <h5> Photographer: [[ gallery.photographer ]]</h5>
+        {% comment %} <render-images v-bind:id='clickedGallery.id'> 
 
-                <div v-for="photo in gallery.photo_set"> 
+        </render-images>  {% endcomment %}
+        <div class="main" v-for="gallery in galleries">
+            <span v-on:click='openGallery' 'clickedGallery'>[[ gallery.description ]]</span>
+                {% comment %} <div id="photobox" v-for="photo in gallery.photo_set"> 
                     <p><img class="image" :src="photo.watermarked_photo"> </p>
-                </div>
+                </div> {% endcomment %}
+            <br>
+
         </div>
 
 
@@ -36,11 +38,26 @@
 
 
 <script>
+
+   /* Vue.component('render-images', {
+            data: function (){
+                
+            },
+            prop: ['clickedGallery.id'], 
+            template: ` 
+                <div v-for="photos in galleries[${clickedGallery.id}]"> 
+                <p><img class="image" :src="photo.watermarked_photo"> </p>
+                </div>
+            `
+        })*/
+
+
     let vm = new Vue({
         el: '#app', 
         delimiters: ['[[' , ']]'], 
         data: {
-            galleries: [], 
+            galleries: [],
+            clickedGallery: null,  
             csrf_token: "",
         }, 
 
@@ -52,7 +69,13 @@
                     url: '/apis/v1/gallery/',
                 }).then(response =>{
                     this.galleries = response.data;
+                    console.log(response.data)
                 })
+            }, 
+            openGallery: function (evt) { 
+                console.log(evt.target.value)
+                this.clickedGallery = newGallery // opens new gallery after clicking photo
+                console.log(this.clickedGallery)
             }
         },
 
@@ -61,6 +84,8 @@
         }
 
     })
+
+    
 
 
 </script>

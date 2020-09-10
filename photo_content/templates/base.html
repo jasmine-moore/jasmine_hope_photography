@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c22cb256d7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/main.css"/>
     <title>Jasmine Hope Photography</title>
 </head>
     <header>
-        <h1>Jasmine Hope Photography</h1> 
-        <div class="nav-left">
-        <h3>
-            <a href= "/home">HOME</a>
-            <a href="/about">ABOUT</a>
-            <a href="/gallery">GALLERY</a>
-            <a href="/contact">CONTACT</a></h3>
+        <h1 id="title">Jasmine Hope Photography</h1> 
+        <div id="nav">
+            <div id="nav-left">
+                <a href= "/home">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/gallery">GALLERIES</a>
+                <a href="/contact">CONTACT</a>
+            </div>
+            <div id="nav-right">
+                {% if user.is_authenticated %}
+                <a href="/userprofile"> Hello, {{ user.username }}! </a> 
+                <a href="{% url 'logout' %}">Logout</a>
+                <p>Member since: {{ user.date_joined }}</p>
+                {% else %}
+                <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:createaccount' %}">Create An Account</a>
+                {% endif %}
+            </div>
+            
         </div>
-        <div class="nav-right">
-            {% if user.is_authenticated %}
-            <h4>Hello, <a href="/userprofile"> {{ user.username }}! </a></h1> 
-            <p>Member since: {{ user.date_joined }}</p>
-            <p><a href="{% url 'logout' %}">Logout</a><p>
-            {% else %}
-            <p><a href="{% url 'login' %}">Login</a> <a href="{% url 'users:createaccount' %}">Create An Account</a></p>
-            {% endif %}
 
     </header>
 <body>
@@ -32,5 +37,12 @@
     {% endblock%}
 </body>
 
-<footer> &copy;2020 Jasmine Hope Photography </footer>
+<footer> 
+    <p><a href= "https://www.facebook.com/jasminehopephotography/" ><i class="fab fa-facebook-square fa-2x"></i>
+
+ </a>
+    <a href="https://www.instagram.com/jasminehopephotography/"><i class="fab fa-instagram fa-2x"></i></a>
+
+    <p> &copy;2020 Jasmine Hope Photography </p>
+</footer>
 </html>

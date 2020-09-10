@@ -2,6 +2,44 @@
 
 {% block content %}
 
-<p> jasminehopephotography@gmail.com </p>
+<div>
+    <img class="conimage" src="../static/images/contactimg.jpg" alt="hawaii"/>
+</div>
+<div class="form">
+    <form action="mailto:jasminehopephotography@gmail.com" method="post" enctype='text/plain'>
+        <fieldset>
+            <legend class="title">Interested in booking a shoot?</legend>
+            <input type="text" name="first" id="first" placeholder="First Name" required/> 
+            <input type="text" name="last" id="last" placeholder="Last Name" required/> <br> 
+            <input type="email" name="email" id="email" placeholder="E-Mail" required/> <br>
+            <input type="tel" name="phone" id="phone" placeholder="Phone Number" required/><br>
+            <input type="text" name="city" id="city" placeholder="City" required/><br>
+            <select>
+                <option value="" disabled selected>State</option>
+                <option value="or">Oregon</option>
+                <option value="wa">Washington</option>
+            </select>
+            <br>
+            <legend class="title"> What type of session are you interested in? </legend>
+                <label>
+                    <input type="checkbox" name="family" value="Family"> Family <br>
+                    <input type="checkbox" name="newborn" value="Newborn"> Newborn <br>
+                    <input type="checkbox" name="maternity" value="Maternity"> Maternity <br>
+                    <input type="checkbox" name="type" value="Engagement"> Engagement <br>
+                    <input type="checkbox" value="Wedding"> Wedding <br>
+                    <input type="checkbox" value="Other"> Other <br>
+                </label>
+        </fieldset>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+    </form>
+</div>
+<br>
+<div class="contact">
+    <p> Phone: (503) 702-5380 </p>
+    <p> Email: jasminehopephotography@gmail.com </p>
+    <p> Consultations by appointment only.
+</div>
+    
 
 {% endblock content %}

@@ -8,12 +8,36 @@ html {
 header {
     font-family: 'Open Sans Condensed', sans-serif;
     text-align: justify;
+    margin: 12 16px;
 
+}
+
+#title {
+    font-family: 'Satisfy', cursive;
+}
+
+#nav-left {
+    margin-right: auto;
+    font-weight: normal;
+ }
+
+#nav{
+    display: flex;
+}
+
+#nav-right {
+    margin-left: .25rem;
+    margin-right: .25rem;
+    font-weight: normal;
 }
 
 body {
     font-family: 'Open Sans Condensed', sans-serif;
 
+}
+
+.main {
+    display:flex;
 }
 
 .galleries {
@@ -22,9 +46,27 @@ body {
     padding: 16px 24px;
 }
 
-.image {
-    max-width: 250px;
+#photobox {
+    display:flex;
 }
+
+.image {
+    max-width: 100%;
+}
+
+.conimage {
+    max-width: 100%;
+}
+
+.form {
+    text-align: justify;
+}
+
+.contact {
+    text-align: center;
+
+}
+
 
 footer {
     font-family: 'Open Sans Condensed', sans-serif;
