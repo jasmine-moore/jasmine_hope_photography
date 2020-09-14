@@ -7,7 +7,6 @@ html {
 
 header {
     font-family: 'Open Sans Condensed', sans-serif;
-    text-align: justify;
     margin: 12 16px;
 
 }
@@ -34,6 +33,57 @@ header {
 body {
     font-family: 'Open Sans Condensed', sans-serif;
 
+}
+
+.home {
+    text-align: center;
+    margin: 12px 0px;
+    padding: 0 36px;
+
+}
+
+a {
+    color: black;
+}
+
+#hello, #interest {
+    font-family: 'sacramento', cursive;
+    font-size: 2.5em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.bookus {
+    text-align: center;
+    margin: 48px 0px;
+}
+
+div.homegallery:hover {
+    border: 1px solid #777;
+}
+
+div.homegallery img {
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+div.desc {
+    padding: 12px;
+    font-family: 'Sacramento', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
 }
 
 .main {
@@ -72,4 +122,25 @@ footer {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: .75em;
     text-align: center;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 100%; 
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: ""; 
+    display: table;
+    clear: both;
 }

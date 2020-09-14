@@ -8,15 +8,21 @@
    
 
     <div id="app">
-        
-        {% comment %} <render-images v-bind:id='clickedGallery.id'> 
 
-        </render-images>  {% endcomment %}
-        <div class="main" v-for="gallery in galleries">
-            <span v-on:click='openGallery' 'clickedGallery'>[[ gallery.description ]]</span>
-                {% comment %} <div id="photobox" v-for="photo in gallery.photo_set"> 
-                    <p><img class="image" :src="photo.watermarked_photo"> </p>
-                </div> {% endcomment %}
+        <div v-if='!active'>
+            <div v-for="photo in activegallery.photo_set">
+                <img class="image" :src="photo.watermarked_photo"/>
+            </div>
+
+        </div>
+            
+        <div v-if="active">
+            <div class="main" v-for="gallery in galleries">
+            <p v-on:click='() => openGallery(gallery.id)'> [[ gallery.name ]] </p>
+                 
+                    {% comment %} <p><img class="image" :src="photo.watermarked_photo"> </p>  {% endcomment %}
+                </div>  
+            </div>
             <br>
 
         </div>
@@ -39,24 +45,39 @@
 
 <script>
 
-   /* Vue.component('render-images', {
+    /* Vue.component('render-images', {
             data: function (){
-                
+                return {
+                    galleries: [],
+                    galleryId: ''
+                }
             },
-            prop: ['clickedGallery.id'], 
             template: ` 
-                <div v-for="photos in galleries[${clickedGallery.id}]"> 
-                <p><img class="image" :src="photo.watermarked_photo"> </p>
+                <div>
+                <p>  [[ galleryId ]]</p>
                 </div>
-            `
-        })*/
+            `,
+            methods: {
+                loadImages: function () {
+                    console.log(galleryId, 'hi') 
+                    this.$emit('results', this.galleryId)
+                }
+            },
+
+            mounted: function () {
+                this.loadImages()
+                
+            }
+        })  */
 
 
     let vm = new Vue({
         el: '#app', 
         delimiters: ['[[' , ']]'], 
         data: {
+            active: true,
             galleries: [],
+            activegallery: {}, 
             clickedGallery: null,  
             csrf_token: "",
         }, 
@@ -69,13 +90,21 @@
                     url: '/apis/v1/gallery/',
                 }).then(response =>{
                     this.galleries = response.data;
-                    console.log(response.data)
+                    console.log(response.data, 'galleries')
+
                 })
             }, 
-            openGallery: function (evt) { 
-                console.log(evt.target.value)
-                this.clickedGallery = newGallery // opens new gallery after clicking photo
-                console.log(this.clickedGallery)
+            openGallery: function (id) {
+                console.log(id)
+                // shorthand for loop and if statement --  looks through each item in array and returns the gallery object, takes passing id and makes sure it matches and return equilvant gallery to the that id 
+                this.galleries.forEach(gallery => { 
+                    if(gallery.id === id){      
+                        this.activegallery= gallery
+                    }
+                }) 
+                this.active = false
+                console.log(this.activegallery, 'hey')
+                
             }
         },
 
