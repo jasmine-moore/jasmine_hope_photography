@@ -18,7 +18,7 @@
             
         <div v-if="active">
             <div class="main" v-for="gallery in galleries">
-            <p v-on:click='() => openGallery(gallery.id)'> [[ gallery.name ]] </p>
+            <img class="image" v-on:click='() => openGallery(gallery.id)' :src='gallery.photo_set[0].watermarked_photo'/> 
                  
                     {% comment %} <p><img class="image" :src="photo.watermarked_photo"> </p>  {% endcomment %}
                 </div>  
