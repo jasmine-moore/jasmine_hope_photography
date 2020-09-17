@@ -7,17 +7,19 @@
     <div class="acctinfo">
         <p> [[ user.first_name ]] [[ user.last_name ]] </p>
         <p> Username: [[ user.username ]] </p>
-        <p> Email: [[ user.email ]] </p>
+        <p>Email: [[ user.email ]] </p>
+        <p>Member since: {{ user.date_joined }}</p>
         <p> Last Login: [[ user.last_login ]] </p>
-
-        
-    
     </div>
 
-    <div class="galleries" v-for="photo in photos"> 
-        <img class="image" :src="photo.original_photo"/> 
-
-    </div>          
+    <div class="container">
+        <div class="responsive" v-for="photo in photos"> 
+            <div class="homegallery">
+                <a target="_blank" :href="photo.original_photo">
+                <img class="image" :src="photo.original_photo"/> </a>
+            </div>
+        </div> 
+    </div>         
 
                
 

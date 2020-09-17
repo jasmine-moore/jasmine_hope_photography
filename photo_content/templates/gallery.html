@@ -17,14 +17,17 @@
         </div>
             
         <div v-if="active">
-            <div class="main" v-for="gallery in galleries">
-            <img class="image" v-on:click='() => openGallery(gallery.id)' :src='gallery.photo_set[0].watermarked_photo'/> 
+        <div class="container">
+            <div v-for="gallery in galleries">
+               <h2> [[ gallery.name]] </h2>
+               <p> [[ gallery.description ]] </p>
+            <img class="galleryimage" v-on:click='() => openGallery(gallery.id)' :src='gallery.photo_set[0].watermarked_photo'/> 
                  
                     {% comment %} <p><img class="image" :src="photo.watermarked_photo"> </p>  {% endcomment %}
                 </div>  
             </div>
             <br>
-
+        </div>
         </div>
 
 

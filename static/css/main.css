@@ -46,7 +46,7 @@ a {
     color: black;
 }
 
-#hello, #interest {
+#hello, #interest, #about {
     font-family: 'sacramento', cursive;
     font-size: 2.5em;
     margin-top: 0px;
@@ -65,7 +65,9 @@ div.homegallery:hover {
 div.homegallery img {
     width: 100%;
     height: auto;
-    display: flex;
+    display: block;
+    pointer-events: none;
+    
 }
 
 div.desc {
@@ -90,24 +92,77 @@ div.desc {
     display:flex;
 }
 
-.galleries {
-    background-color: whitesmoke;
-    margin: 12px;
-    padding: 16px 24px;
+.container {
+    text-align: center;
 }
 
-#photobox {
-    display:flex;
+.aboutimg {
+    position: relative;
+}
+
+#about {
+    font-family: 'sacramento', cursive;
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.aboutphoto {
+    max-width: 40%;
+}
+
+.jeff, .jas {
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin: 12px 12px;
+    padding: 12 24px;
+}
+
+.jeff p {
+    padding: 0 24px;
+}
+
+.jas p {
+    padding: 0 24px;
 }
 
 .image {
     max-width: 100%;
 }
 
-.conimage {
+.galleryimage {
+    max-width: 75%;
+    margin: 8px 36px;
+}
+
+.conimage, .aboutimage {
     max-width: 100%;
 }
 
+.acctinfo {
+    background-color: grey;
+    text-align: justify;
+    margin: 12px 12px;
+    padding: 0px 36px;
+}
+
+.acctinfo p {
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
 .form {
     text-align: justify;
 }
@@ -143,4 +198,55 @@ footer {
     content: ""; 
     display: table;
     clear: both;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    #title {
+        font-size: 48px;
+    }
+
+    .home, .photographer, .acctinfo {
+        font-size: 1.5em;
+    }
+
+   
+}
+
+@media (min-width: 1100px) {
+    #title {
+        font-size: 72px;
+    }
+
+    #nav {
+        font-size: 2em;
+    }
+
+    div.desc {
+        font-size: 4em;
+    }
+
+    #text { 
+        font-size: 3em;
+    }
+
+    .home, .photographer, .acctinfo {
+        font-size: 2.5em;
+    }
+
+    .form {
+        font-size: 2em;
+    }
+    
+    .conimage {
+        image-orientation: center;
+    }
+
+    footer {
+        font-size: 1em;
+    }
 }
