@@ -94,6 +94,13 @@ div.desc {
 
 .container {
     text-align: center;
+    margin: 12px;
+}
+
+.container h2, p {
+    padding: 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .aboutimg {
